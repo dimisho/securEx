@@ -1,0 +1,32 @@
+{
+  "name": "SecureEx",
+  "version": "1.5.0",
+  "description": "SecureDescription",
+  "icons": {
+    "16": "img/icon_16x16.png",
+    "48": "img/icon_48x48.png",
+    "128": "img/icon_128x128.png"
+  },
+  "default_locale": "en",
+  "browser_action": {
+    "default_icon": {
+      "19": "img/icon_19x19.png",
+      "38": "img/icon_38x38.png"
+    },
+    "default_title": "SecureEx",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options_main_page.html",
+  "permissions": [
+    "tabs",
+    "\u003Call_urls\u003E",
+    "cookies",
+    "contextMenus",
+    "unlimitedStorage",
+    "notifications",
+    "storage",
+    "clipboardWrite"
+  ],
+  "minimum_chrome_version": "41",
+  "manifest_version": 2
+}
