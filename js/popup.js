@@ -238,9 +238,15 @@ function createAccordionList(cks, callback, callbackArguments) {
         .append($("<span/>").text(domainText));
     }
 
-    var titleElement = $("<h3/>").append(
-      $("<a/>").html(titleText.html()).attr("href", "#")
-    );
+    var vulnerabilityText;
+    vulnerabilityText = $("<h3/>");
+    vulnerabilityText.attr("style", "color: white; margin: 0");
+
+    var titleElement = $("<div/>")
+      .append($("<a/>").html(titleText.html()).attr("href", "#"))
+      .append(vulnerabilityText);
+    var titleElementStyle =
+      "display: flex; justify-content: space-between; padding: 8px 32px; ";
 
     var cookie = $(".cookie_details_template")
       .clone()
@@ -266,6 +272,9 @@ function createAccordionList(cks, callback, callbackArguments) {
     }
     if (currentC.httpOnly) {
       $(".httpOnly", cookie).prop("checked", true);
+    } else {
+      vulnerabilityText.text("XSS");
+      titleElementStyle += "background: rgba(255, 0, 0, 0.7); ";
     }
     if (currentC.session) {
       $(".expiration", cookie).attr("disabled", "disabled");
@@ -281,6 +290,7 @@ function createAccordionList(cks, callback, callbackArguments) {
     }
     $(".expiration", cookie).val(expDate);
 
+    titleElement.attr("style", titleElementStyle);
     $("#cookiesList").append(titleElement);
     $("#cookiesList").append(cookie);
   }
